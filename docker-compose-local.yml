@@ -1,0 +1,14 @@
+services:
+  cafe-recommendation-database:
+    container_name: cafe-blog-database
+    build:
+      dockerfile: Dockerfile
+      context: ./database
+    image: ekgus419/cafe-blog-database
+    environment:
+      - MARIADB_DATABASE=cafe-blog-database
+      - MARIADB_ROOT_PASSWORD=${SPRING_DATASOURCE_PASSWORD}
+    volumes:
+      - ./database/config:/etc/mysql/conf.d
+    ports:
+      - "3308:3306"
