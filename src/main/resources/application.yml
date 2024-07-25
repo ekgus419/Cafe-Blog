@@ -16,6 +16,12 @@ spring:
 ---
 
 spring:
+  servlet:
+    multipart:
+      enabled: true
+      location: c:/upload  # 파일 업로드 경로
+      max-request-size: 10MB  # 최대 요청 사이즈
+      max-file-size: 10MB  # 최대 파일 사이즈
   config:
     activate:
       on-profile: local
